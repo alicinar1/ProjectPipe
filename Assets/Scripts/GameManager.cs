@@ -13,6 +13,9 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private ObstacleSpawner obstacleSpawner;
     [SerializeField] private Button pauseButton;
     [SerializeField] private TMP_Text gameOverScoreText;
+    [SerializeField] private TMP_Text gameOverHighScoreText;
+
+    private int highScore;
     
 
     private int score;
@@ -62,6 +65,7 @@ public class GameManager : MonoSingleton<GameManager>
         Player.Instance.gameObject.GetComponentInChildren<InputController>().enabled = false;
         gameOverCanvas.gameObject.SetActive(true);
         gameOverScoreText.text = "Score: " + CalculateScore().ToString();
+        gameOverHighScoreText.text = "High Score: " + PlayerPrefs.GetInt("highscore");
         StartCoroutine(CanvasFadeOut(inGameCanvas));
         StartCoroutine(CanvasFadeIn(gameOverCanvas));
     }
@@ -99,6 +103,13 @@ public class GameManager : MonoSingleton<GameManager>
     public int CalculateScore()
     {
         score = Mathf.RoundToInt(Player.Instance.transform.position.z * 0.1f);
+
+        if (score > highScore)
+        {
+            highScore = score;
+
+            PlayerPrefs.SetInt("highscore", highScore);
+        }
 
         if (score % 20 == 0 && !isSpeedIncreased)
         {
