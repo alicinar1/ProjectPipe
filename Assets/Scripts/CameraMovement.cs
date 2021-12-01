@@ -6,7 +6,6 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private Transform cameraPos;
     [SerializeField] private Transform pipePos;
-    [SerializeField] private Transform player;
     [SerializeField] private float zOffset;
     [SerializeField] private float yOffset;
     [SerializeField] private float xAngleOffset;
@@ -22,7 +21,7 @@ public class CameraMovement : MonoBehaviour
 
     private void SetCameraPosition()
     {
-        cameraPos.rotation = Quaternion.Euler(xAngleOffset, 0f, pipePos.rotation.z * 0.5f + player.rotation.z * 0.5f);
-        cameraPos.position = new Vector3(0, yOffset, player.position.z - zOffset);
+        cameraPos.rotation = Quaternion.Euler(xAngleOffset, 0f, pipePos.rotation.z * 0.5f + Player.Instance.transform.rotation.z * 0.5f);
+        cameraPos.position = new Vector3(0, yOffset, Player.Instance.transform.position.z - zOffset);
     }
 }
