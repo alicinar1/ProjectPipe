@@ -1,2 +1,2 @@
 # ProjectPipe
- HyperCasual Mobile Game on progress
+ 3D HyperCasual Mobile Game on progress
