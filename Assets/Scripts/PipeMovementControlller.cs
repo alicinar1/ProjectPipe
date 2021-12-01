@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PipeMovementControlller : MonoBehaviour
 {
-    public void TurnPipeRight()
+    public void TurnPipeRight(float pixelCount)
     {
-        this.gameObject.transform.Rotate(new Vector3(0, 0, 3) * Time.deltaTime * 100);
+        this.gameObject.transform.Rotate(new Vector3(0, 0, 3) * Time.deltaTime * pixelCount);
     }
 
-    public void TurnPipeLeft()
+    public void TurnPipeLeft(float pixelCount)
     {
 
-        this.gameObject.transform.Rotate(new Vector3(0, 0, -3) * Time.deltaTime * 100);
+        this.gameObject.transform.Rotate(new Vector3(0, 0, -3) * Time.deltaTime * pixelCount);
     }
 }

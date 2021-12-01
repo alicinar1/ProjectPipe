@@ -16,19 +16,19 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
+    //void FixedUpdate()
+    //{
         
-    }
+    //}
 
-    private void Update()
+    private void FixedUpdate()
     {
         GoForward();
     }
 
     private void GoForward()
     {
-        controller.Move(Vector3.forward * Player.Instance.PlayerMovementSpeed * Time.deltaTime);
+        controller.Move(Vector3.forward * Player.Instance.PlayerMovementSpeed * Time.fixedDeltaTime);
 
         //rb.AddForce(new Vector3(0, 0, Player.Instance.PlayerMovementSpeed) * Time.fixedDeltaTime, ForceMode.Force);
         //t

@@ -10,7 +10,7 @@ public class Player : MonoSingleton<Player>
 
     private void Start()
     {
-        PlayerMovementSpeed = 15;
+        PlayerMovementSpeed = 10;
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

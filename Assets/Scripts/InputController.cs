@@ -20,15 +20,19 @@ public class InputController : MonoBehaviour
 
     private void CheckInput()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        
+        if (Input.touchCount > 0)
         {
+            Touch touch = Input.GetTouch(0);
+
             //playerMovement.MoveRight();
-            pipeMovementControlller.TurnPipeRight();
+            pipeMovementControlller.TurnPipeRight(touch.deltaPosition.x);
+            Debug.Log(touch.deltaPosition.x);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            //playerMovement.MoveLeft();
-            pipeMovementControlller.TurnPipeLeft();
-        }
+        //if (Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    //playerMovement.MoveLeft();
+        //    pipeMovementControlller.TurnPipeLeft();
+        //}
     }
 }
